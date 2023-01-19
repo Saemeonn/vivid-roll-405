@@ -6,37 +6,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forever Teen Online Shopping Home Page</title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
+    <link rel="stylesheet" href="index.js">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" >
+    
 </head>
 <body>
+    
     <header class="container">
-        <nav class="flex space-bet">
-            <div class="left flex">
+        <!-- ------- Navigation Bar -------- --> 
+        <nav class="flex space-bet container">
+            <div class="left">
                 <img src="/FTLOGO.png" alt="/">
-                <ul class="flex items-center justify-center uppercase bold">
-                    <li>Men</li>
-                    <li>Women</li>
-                    <li>Kids</li>
-                    <li>Home and Living</li>
-                    <li>Studio</li>
+                <ul class="items-center justify-center uppercase bold menuItems">
+                    <li><a href="">Men</a></li>
+                    <li><a href="">Women</a></li>
+                    <li><a href="">Kids</a> </li>
+                    <li><a href="">Home and Living</a> </li>
+                    <li><a href="">Studio</a></li>
                 </ul>
             </div>
             <div class="right flex items-center">
                 <input placeholder="Search for products" class="searchbar" value="" >
                 <div class="profile mx-2">
                     <img src="profileBlack.png" alt="">
-                    Profile
+                   
                 </div>
                 <div class="wishlist mx-2">
                     <img src="—Pngtree—vector heart icon_4187108.png" alt="">
-                    Wishlist
+                   
                 </div>
                 <div class="bag mx-2">
-                    <img src="bag-png-33933.png" alt="">
-                    Bag
+                    <img src="bag-png-33933.png" alt=""> 
                 </div>
+               
+                    <img src="menubar.PNG" class="menu-icon" onclick="menutoggle()"/> 
+            
             </div>
         </nav>
     </header>
-    
+
+    <!-- ------- Middle Section -------- --> 
+    <section class="container section1">
+        <img class="ftlogo" src="/FTLOGO.png" alt="/">
+       <a href=""> <img class="homeImg" src="/homeBanner.PNG"></a>
+       <a href=""> <img class="homeImg" src="/2HomeBanner.PNG" alt=""></a>
+        <a href=""><img class="homeImg" src="/3HomeBanner.PNG" alt=""></a>
+       <a href=""> <img class="homeImg" src="/4HomeBanner.PNG" alt=""></a>
+    </section>
+
+    <!-- ------- featured category -------- --> 
+    <div class="categories container">
+        <div class="smallContainer">
+            <div class="row">
+                <div class="col-3">
+                    <img src="/category-1.webp">
+                     <img src="/category-2.webp">
+                    <img src="/category-3.webp">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------- featured products -------- --> 
+    <div class="smallContainer container">
+        <h2 class="title">Featured Products</h2>
+        <div class="row2">
+            <div class="col-4">
+                <img src="https://images.asos-media.com/products/asos-design-dropped-shoulder-oversized-camp-collar-shirt-in-blur-stripe/203648242-1-multi?$n_240w$&wid=168&fit=constrain" >
+                <h4>Floral abstract shirt</h4>
+
+                <p>$500.00</p>
+            </div>
+            <div class="col-4">
+                <img src="https://images.asos-media.com/products/asos-design-polo-shirt-in-brown-matte-velour/204072544-1-brown?$n_240w$&wid=168&fit=constrain" >
+                <h4>Polo shirt</h4>
+                <p>$500.00</p>
+            </div>
+            <div class="col-4">
+                <img src="https://images.asos-media.com/products/asos-design-loafers-in-brown-leather-with-fringe-detail/201596887-1-brown?$n_240w$&wid=168&fit=constrain" >
+                <h4>Fringe loafers</h4>
+                <p>$500.00</p>
+            </div>
+            <div class="col-4">
+                <img src="https://images.asos-media.com/products/rains-fleece-beanie-in-black/203385516-1-black?$n_240w$&wid=168&fit=constrain" >
+                <h4>Fleece beanie</h4>
+                <p>$500.00</p>
+            </div>
+            <div class="col-4">
+                <img src="https://images.asos-media.com/products/asos-design-slim-smart-satin-pants-with-retro-monogram-print-in-brown/203387389-1-brown?$n_240w$&wid=168&fit=constrain" >
+                <h4>Smart satin pants</h4>
+                <p>$500.00</p>
+            </div>
+        </div> 
+    </div>
+
+    <!-- ------- footer -------- --> 
+
+    <div class="footer">
+        <div class="container">
+            <div class="row3">
+                <div>
+                    <h4>ONLINE SHOPPING</h4>
+                    <ul>
+                        <li>Men</li>
+                        <li>Women</li>
+                        <li>Kids</li>
+                        <li>Home & Living</li>
+                        <li>Beauty</li>
+                        <li>Gift Cards</li>
+                        <li>Myntra Insider</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>CUSTOMER POLICIES</h4>
+                    <ul>
+                        <li>Contact Us</li>
+                        <li>FAQ</li>
+                        <li>T&C</li>
+                        <li>Terms Of Use</li>
+                        <li>Track Orders</li>
+                        <li>Cancellation</li>
+                        <li>Returns</li>
+                        <li>Privacy policy</li>
+                        
+                    </ul>
+                </div>
+                <div>
+                    <h4>EXPERIENCE MYNTRA APP ON MOBILE</h4>
+        
+                        <img src="/getapp.PNG" >
+                    
+                    <h4>KEEP IN TOUCH</h4>
+                    <img class="keep" src="/keepintouch.PNG">
+                </div>
+                <div>
+                    <img src="/waranty.PNG" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

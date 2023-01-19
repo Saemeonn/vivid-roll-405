@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-html, body {
-    height: 100%;
-    width: 100%;
+
+*{
     margin: 0px;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
 } 
 header{
     position: sticky;
     top: 0;
     background-color: white;
     height: 66px;
+}
+.left{
+    display: flex;
 }
 .left img{
     width: 200px;
@@ -23,14 +29,22 @@ nav{
     font-size: 12px;
     padding-top: 14px;
     padding-bottom: 10px;
+    background-color: white;
 }
 nav ul li{
     list-style: none;
     padding: 0 32px;
 }
+nav ul{
+    display: flex;
+}
+.ftlogo{
+    display: none;
+}
 .profile img{
     width: 25px;
-    height: 30px;
+    height: 40px;
+    margin-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -40,7 +54,7 @@ nav ul li{
 }
 .wishlist img{
     width: 35px;
-    height: 30px;
+    height: 45px;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -48,24 +62,206 @@ nav ul li{
     display: grid;
     text-align: center;
 }
-
 .bag img{
     width: 35px;
-    height: 30px;
+    height: 40px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+.homeImg{
+    width: 80vw;
+    margin: 22px 0px;
 }
 .bag{
     display: grid;
     text-align: center;
 }
 .searchbar{
-    width: 19vw;
+    width: 29vw;
     padding: 7px;
     border: 0.1px solid rgb(238, 238, 238);
     border-radius: 5px;
     background: rgb(255, 255, 244);
 }
+.section1{
+    margin-top: 20px;
+}
+.menu-icon{
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}
+.right{
+    width: 100%;
+}
+
+/* -----fetured categories----- */
+
+.categories{
+    margin: 70px 0; 
+}
+.row{
+    justify-content: center;
+    margin-bottom: 120px;
+    
+}
+
+.col-3{
+    flex-basis: 30%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    display: flex;
+}
+.col-3 img{
+    width: 100%;
+    margin: 20px;
+}
+
+.smallContainer{
+    max-width: 1600px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+/* -----fetured  products----- */
+.row2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+   
+    margin-bottom: 100px;
+    width: 100%;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+.title::after{
+    content: '';
+    background-color: rgb(255, 255, 0);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h4{
+    color: #555;
+    font-weight: normal;
+}
+.col-4 img{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 250px;
+    margin-bottom: 50px;
+    transition: transform 0.5;
+}
+.col-4 p{
+    font-size: 14px;
+}
+.col-4:hover{
+    transform: translateY(-5px);
+}
+
+/* ----- footer ----- */
+.footer{
+    background-color: rgb(255, 252, 233);
+}
+.row3{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.row3 ul li{
+    list-style: none;
+    text-align: left;
+    color: #555;
+    margin-bottom: 8px;
+}
+.row3 h4{
+    text-align: left;
+    margin-bottom: 20px;
+    color: black;
+    font-weight: bold;
+}
+.row3 img:nth-child(2){
+    margin-bottom: 20px;
+    margin-right: 130px;
+}
+.keep{
+    margin-bottom: 20px;
+    margin-right: 250px;
+}
+
+
+/* ----- media query MENU BAR ----- */
+
+@media only screen and (max-width: 900px){
+    
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        display: block;
+        text-align: right;
+    }
+    nav ul li{
+       margin-right: 5px;
+       margin-top: 10px;
+       margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: white;
+     }
+     .menu-icon{
+        display: block;
+        cursor: pointer;
+     }
+     .left img{
+        display: none;
+     }
+     .ftlogo{
+        display: block;
+        width: 100%;
+     }
+    
+
+
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,7 +289,9 @@ nav ul li{
     display: flex;
  }
 .container{
-   padding: 0 10vw;
+   text-align: center;
+   max-width:2000px;
+    margin: auto;
  }
  .items-center{
     align-items: center;
@@ -101,3 +299,10 @@ nav ul li{
  .justify-center{
     justify-content: center;
  }
+ a{
+    text-decoration: none;
+    color: #555
+}
+p{
+    color: #555;
+}
