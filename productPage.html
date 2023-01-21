@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forever Teen Online Shopping Home Page</title>
+    <title>All Products - Forever Teen </title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -52,33 +52,20 @@
         </nav>
     </header>
 
-    <!-- ------- Middle Section -------- --> 
-    <section class="container section1">
-        <div>
-            <img class="ftlogo" src="/FTLOGO.png" alt="/">
-        </div>
-       <a href="productPage.html"> <img class="homeImg" src="/homeBanner.PNG"></a>
-       <a href="productPage.html"> <img class="homeImg" src="/2HomeBanner.PNG" alt=""></a>
-        <a href="productPage.html"><img class="homeImg" src="/3HomeBanner.PNG" alt=""></a>
-       <a href="productPage.html"> <img class="homeImg" src="/4HomeBanner.PNG" alt=""></a>
-    </section>
+    <!-- ------- All Product Section -------- --> 
+    
+    
 
-    <!-- ------- featured category -------- --> 
-    <div class="categories container">
-        <div class="smallContainer">
-            <div class="row">
-                <div class="col-3">
-                    <img src="/category-1.webp">
-                     <img src="/category-2.webp">
-                    <img src="/category-3.webp">
-                </div>
-            </div>
+        <div class="row5">
+            <h2>All Products</h2>
+            <select id="filter">
+                <option value="">Filter By Category</option>
+                <option value="Mens">Mens</option>
+                <option value="Womens">Womens</option>
+              </select>
         </div>
-    </div>
-    <!-- ------- featured products -------- --> 
-    <div class="smallContainer container fproducts">
-        <h2 class="title">Featured Products</h2>
-        <div class="row2">
+        <div class="smallContainer container">
+        <!-- <div class="row2">
             <div class="col-4">
                 <img src="https://images.asos-media.com/products/asos-design-dropped-shoulder-oversized-camp-collar-shirt-in-blur-stripe/203648242-1-multi?$n_240w$&wid=168&fit=constrain" >
                 <h4>Floral abstract shirt</h4>
@@ -105,8 +92,13 @@
                 <h4>Smart satin pants</h4>
                 <p>$500.00</p>
             </div>
-        </div> 
+        </div>  -->
+        <div id="product-container">
+            <!-- Here Append All the Products  -->
+          </div>
     </div>
+
+    
 
     <!-- ------- footer -------- --> 
 
@@ -166,5 +158,92 @@
             menuItems.style.maxHeight = "0px";
         }
 }
+const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
+    async function fetchData(){
+      try {
+        let res = await fetch(API)
+        res = await res.json();
+        console.log(res);
+        displayProduct(res)
+      } catch (err) {
+        console.log(err)
+      };
+    };
+   
+
+    let filterBy = document.getElementById("filter");
+    filterBy.addEventListener("change", () =>{ 
+      fetchData()
+    });
+
+    function filterData(data){
+      let filterValue = filterBy.value
+      if(filterValue === ""){
+        displayProduct(data)
+      }
+      else {
+        data=data.filter(Products =>{
+          //it will return boolean value
+          return Products.category===filterValue;
+        })
+        displayProduct(data);
+      }
+    }
+
+    let cartArr = JSON.parse(localStorage.getItem("cart")) || [];
+    let container = document.getElementById("product-container");
+
+   fetchData();
+    function displayProduct(data){
+      container.innerHTML= "";
+      data.forEach(Products => {
+       
+        let card = document.createElement("div")
+
+        let img = document.createElement("img");
+        img.src = Products.image;
+
+        let brand = document.createElement("h5");
+        brand.textContent = Products.name;
+
+        let category = document.createElement("p");
+        category.textContent = Products.category;
+
+        let detail = document.createElement("p");
+        detail.textContent = Products.description;
+
+        let price = document.createElement("p")
+        price.textContent = `$${Products.price}`
+
+        let add_to_cart = document.createElement("button")
+        add_to_cart.textContent = "Add To Cart";
+
+        
+        add_to_cart.addEventListener("click", () =>{
+          if(checkDuplicate(Products)){
+            alert("Product Already in cart")
+          }
+          else{
+            cartArr.push({...Products,quantity:1})
+            localStorage.setItem("cart",JSON.stringify(cartArr))
+            alert("Product added to cart")
+          }
+        })
+
+        card.append(img,brand,price,category,add_to_cart);
+        container.append(card);
+      });
+    };
+
+
+  
+    function checkDuplicate(Products){
+      for (let i=0; i<cartArr.length;i++){
+        if(cartArr[i].id===Products.id){
+          return true
+        }
+      }
+      return false
+    }
 </script>
 </html>
