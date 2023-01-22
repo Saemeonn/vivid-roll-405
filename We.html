@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(219, 219, 219);
+        }
+        #container{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        #container img {
+            width: 100%;
+        }
+        #container > div {
+            background-color: white;
+            text-align: center;
+        }
+        form{
+            margin: auto;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            width: 500px;
+        }
+        form input[type="text"]{
+            width: 70%;
+        }
+        form input{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <form >
+        <input placeholder="Search" type="text" id="search"/>
+        <input type="submit" value="Search"/>
+    </form>
+    <div id="container"></div>
+</body>
+<script>
+    const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
+
+
+    let container = document.getElementById("container");
+    let searchForm = document.querySelector("form");
+
+    let fetchdata = [];
+
+    asyncFetch();
+
+
+
+    searchForm.addEventListener("submit", (e) =>{
+        e.preventDefault();
+        let searchParams = searchForm.search.value;
+        
+        let filtered = fetchdata.filter((Products) =>{
+            if(Products.name.toUpperCase().includes(searchParams.toUpperCase())=== true){
+                return true;
+            }
+            else{
+                return false;
+            }
+        });
+        display(filtered);
+    });
+    function thenFetch() {
+        fetch(API)
+        .then((request) =>{
+            return request.json();
+        })
+        .then((data) =>{
+            console.log(data)
+        })
+        .catch((err) =>{
+            console.log(err);
+        });
+    };
+    
+    async function asyncFetch(){
+        try {
+            let request = await fetch(API);
+            let data = await request.json();
+            fetchdata = data.map(function (Products) {
+                return{
+                    name: Products.name,
+                    continent: Products.category
+                };
+            });
+            console.log(fetchdata)
+            display(fetchdata);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+function display(data){
+    container.innerHTML = "";
+    data.forEach(Products => {
+    let card = document.createElement("div")
+
+    let img = document.createElement("img");
+    img.src = Products.image;
+
+    let brand = document.createElement("h5");
+    brand.textContent = Products.name;
+
+    let category = document.createElement("p");
+    category.textContent = Products.category;
+
+    let detail = document.createElement("p");
+    detail.textContent = Products.description;
+
+    let price = document.createElement("p")
+    price.textContent = `$${Products.price}`
+
+    let add_to_cart = document.createElement("button")
+    add_to_cart.textContent = "Add To Cart";
+
+
+
+
+    card.append(brand,category,add_to_cart);
+    container.append(card);
+     });
+    }
+</script>
+</html>

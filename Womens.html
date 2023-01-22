@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - Forever Teen </title>
+    <title>All Womens Products - Forever Teen </title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="right flex items-center">
-                <input placeholder="Search for products" class="searchbar" id="search-items" >
+                <input placeholder="Search for products" class="searchbar" value="" >
                 <div class="profile mx-2">
                     <a href="login.html"> <img src="profileBlack.png" alt=""></a>
                    
@@ -57,10 +57,10 @@
     
     
     <div class="ftdiv">
-      <a href="/index.html"><img class="ftlogo" src="/FTLOGO.png" alt="/"></a> 
-  </div>
+        <a href="/index.html"><img class="ftlogo" src="/FTLOGO.png" alt="/"></a>
+    </div>
         <div class="row5">
-            <h2>All Products</h2>
+            <h2>All Womens Products</h2>
             <select id="filter">
                 <option value="">Filter By Category</option>
                 <option value="Mens">Mens</option>
@@ -68,34 +68,7 @@
               </select>
         </div>
         <div class="smallContainer container">
-        <!-- <div class="row2">
-            <div class="col-4">
-                <img src="https://images.asos-media.com/products/asos-design-dropped-shoulder-oversized-camp-collar-shirt-in-blur-stripe/203648242-1-multi?$n_240w$&wid=168&fit=constrain" >
-                <h4>Floral abstract shirt</h4>
-
-                <p>$500.00</p>
-            </div>
-            <div class="col-4">
-                <img src="https://images.asos-media.com/products/asos-design-polo-shirt-in-brown-matte-velour/204072544-1-brown?$n_240w$&wid=168&fit=constrain" >
-                <h4>Polo shirt</h4>
-                <p>$500.00</p>
-            </div>
-            <div class="col-4">
-                <img src="https://images.asos-media.com/products/asos-design-loafers-in-brown-leather-with-fringe-detail/201596887-1-brown?$n_240w$&wid=168&fit=constrain" >
-                <h4>Fringe loafers</h4>
-                <p>$500.00</p>
-            </div>
-            <div class="col-4">
-                <img src="https://images.asos-media.com/products/rains-fleece-beanie-in-black/203385516-1-black?$n_240w$&wid=168&fit=constrain" >
-                <h4>Fleece beanie</h4>
-                <p>$500.00</p>
-            </div>
-            <div class="col-4">
-                <img src="https://images.asos-media.com/products/asos-design-slim-smart-satin-pants-with-retro-monogram-print-in-brown/203387389-1-brown?$n_240w$&wid=168&fit=constrain" >
-                <h4>Smart satin pants</h4>
-                <p>$500.00</p>
-            </div>
-        </div>  -->
+       
         <div id="product-container">
             <!-- Here Append All the Products  -->
           </div>
@@ -161,7 +134,7 @@
             menuItems.style.maxHeight = "0px";
         }
 }
-const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
+const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products?category=Womens";
     async function fetchData(){
       try {
         let res = await fetch(API)
@@ -194,8 +167,8 @@ const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
     }
 
 
-    //SEARCHBAR FILTER
 
+    // SEARCH BAR FILTER
 
 
     let searchForm = document.querySelector("input");
@@ -254,9 +227,6 @@ async function asyncFetch(){
             console.log(error);
         }
     }
-
-
-
 
 
 

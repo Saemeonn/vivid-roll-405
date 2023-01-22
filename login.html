@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Teen Online Shopping Home Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" >
+    
+</head>
+<body>
+    
+    <header class="container">
+        <!-- ------- Navigation Bar -------- --> 
+        <nav class="flex space-bet">
+            <div class="left">
+                <a href="index.html"><img src="/FTLOGO.png" alt="/"></a>
+                <ul class="items-center justify-center uppercase bold" id="menuItems">
+                    <li><a href="Mens.html">Men</a></li>
+                    <li><a href="Womens.html">Women</a></li>
+                    <li><a href="">Kids</a> </li>
+                    <li><a href="">Home and Living</a> </li>
+                    <li><a href="">Studio</a></li>
+                </ul>
+            </div>
+            <div class="right flex items-center">
+                <a href="productPage.html"><input placeholder="Search for products" class="searchbar" ></a>
+                
+                <div class="wishlist mx-2">
+                    <a href=""><img src="—Pngtree—vector heart icon_4187108.png" alt=""></a>
+                   
+                </div>
+                <div class="bag mx-2">
+                    <a href="cart.html"><img src="bag-png-33933.png" alt=""> </a>
+                </div>
+               
+                    <img src="menubar.PNG" class="menu-icon" onclick="menutoggle()"> 
+            
+            </div>
+        </nav>
+    </header>
+    <div class="login">
+        <div >
+                <img src="/loginoffer.PNG" alt="">
+            <div>
+            <h2>Login <span> or </span> Signup</h2>
+            <input placeholder="+91 | Mobile Number" type="number" class="number">
+            <p>By continuing, I agree to the <a href="">Terms of Use</a>  & <a href="">Privacy Policy</a> </p>
+           
+            <a href="/index.html"> <button class="login-btn">CONTINUE</button></a>
+            <p>Have Trouble Logging In? <a href="">Get help</a></p>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</body>
+<script>
+    var menuItems = document.getElementById("menuItems");
+        menuItems.style.maxHeight = "50px";
+
+    function menutoggle(){
+        if(menuItems.style.maxHeight == "0px"){
+            menuItems.style.maxHeight = "200px";
+        }
+        else{
+            menuItems.style.maxHeight = "0px";
+        }
+}
+</script>
+</html>

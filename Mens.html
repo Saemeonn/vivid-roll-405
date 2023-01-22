@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - Forever Teen </title>
+    <title>All Womens Products - Forever Teen </title>
     <link rel="stylesheet" href="style.css" type="text/css"/>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div class="right flex items-center">
-                <input placeholder="Search for products" class="searchbar" id="search-items" >
+                <input placeholder="Search for products" class="searchbar" value="" >
                 <div class="profile mx-2">
                     <a href="login.html"> <img src="profileBlack.png" alt=""></a>
                    
@@ -57,10 +57,10 @@
     
     
     <div class="ftdiv">
-      <a href="/index.html"><img class="ftlogo" src="/FTLOGO.png" alt="/"></a> 
-  </div>
+        <a href="/index.html"><img class="ftlogo" src="/FTLOGO.png" alt="/"></a>
+    </div>
         <div class="row5">
-            <h2>All Products</h2>
+            <h2>All Mens Product</h2>
             <select id="filter">
                 <option value="">Filter By Category</option>
                 <option value="Mens">Mens</option>
@@ -161,7 +161,7 @@
             menuItems.style.maxHeight = "0px";
         }
 }
-const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
+const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products?name=shirt";
     async function fetchData(){
       try {
         let res = await fetch(API)
@@ -194,11 +194,12 @@ const API = "https://63c7bd6e5c0760f69abcf555.mockapi.io/Products";
     }
 
 
-    //SEARCHBAR FILTER
 
 
+     // SEARCH BAR FILTER
 
-    let searchForm = document.querySelector("input");
+
+     let searchForm = document.querySelector("input");
 
 let fetchitems = [];
 asyncFetch();
@@ -254,10 +255,6 @@ async function asyncFetch(){
             console.log(error);
         }
     }
-
-
-
-
 
 
 
